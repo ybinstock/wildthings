@@ -1,0 +1,56 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Where the Wild Things Are</title>
+  <meta name="description" content="Where the Wild Things Are">
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+<a-scene fog="type: exponential; color: #000000; density: .2;">
+  <a-assets>
+    <audio id="woods" src="audio/July_Night.mp3" ></audio>
+    <audio id="night" src="audio/Outside_Night.mp3"></audio>
+    <audio id="wind" src="audio/Wind_In_Pine_Trees.mp3"></audio>
+    <video id="video" autoplay loop="false" src="videos/final_video.mp4" preload="auto"></video>
+    <a-asset-item id="tree2" src="models/tree_002/scene.gltf" preload="auto"></a-asset-item>
+    <a-asset-item id="grass" src="models/grass_view/scene.gltf" preload="auto"></a-asset-item>
+  </a-assets>
+
+  <a-entity position="0 .5 15" sound="src: #woods; autoplay: true;">
+    <a-entity sound="src: #wind; autoplay: true; volume: 3;">
+      <a-camera sound="src: #night; autoplay: true;">
+        <a-animation attribute="position"
+                     easing="linear"
+                     to="0 .5 -30" dur="60000"></a-animation>
+      </a-camera>
+    </a-entity>
+  </a-entity>
+
+  <a-sky color="#222"></a-sky>
+
+  <a-video  class="movie" src="#video" width="10" height="3" position="0 3 13" rotation="0 180 0"
+           material="fog: false">
+
+    <a-animation attribute="position"
+                 easing="linear"
+                 to="0 2 -33" dur="70000"></a-animation>
+
+  </a-video>
+
+  <a-entity gltf-model="#tree2" position="-6 -5.5 12" scale="1 1 1"></a-entity>
+  <a-entity gltf-model="#tree2" position="6 -5.5 4" scale="1 1 1"></a-entity>
+  <a-entity gltf-model="#tree2" position="-6 -5.5 -6" scale="1 1 1"></a-entity>
+  <a-entity gltf-model="#tree2" position="6 -5.5 -15" scale="1 1 1"></a-entity>
+
+  <a-entity gltf-model="#grass" position="2 -1 15" scale=".6 .2 .8"></a-entity>
+  <a-entity gltf-model="#grass" position="2 -1 0" scale=".6 .2 .8"></a-entity>
+  <a-entity gltf-model="#grass" position="2 -1 -15" scale=".6 .2 .8"></a-entity>
+  <a-entity gltf-model="#grass" position="2 -1 -30" scale=".6 .2 .8"></a-entity>
+</a-scene>
+
+</body>
+</html>
+
