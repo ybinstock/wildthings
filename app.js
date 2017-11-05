@@ -22,17 +22,3 @@ function startScript() {
 //  });
 
 }
-
-//
-//$(document).ready(function() {
-//  var entity = document.querySelector('.movie');
-//
-////For video
-//  function showVideo() {
-//    entity.play();
-//    console.log('hello')
-//  }
-//
-//  setTimeout(showVideo, 4000);
-//
-//});
