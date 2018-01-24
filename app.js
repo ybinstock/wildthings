@@ -7,6 +7,7 @@ function startScript() {
 
   window.onload = startScript;
 
+
 //For video
 //  function showVideo() {
 //    $(entity).attr('visible', 'true');

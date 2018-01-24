@@ -5,13 +5,20 @@
   <meta name="description" content="Where the Wild Things Are">
   <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+  <!-- Bootstrap JS Dependencies -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.rawgit.com/gladeye/aframe-preloader-component/1.0.0/dist/aframe-preloader-component.min.js"></script>
+
   <script src="app.js"></script>
 </head>
 
 <body>
-<a-scene fog="type: exponential; color: #000000; density: .2;">
+<a-scene preloader fog="type: exponential; color: #000000; density: .2;">
 
-  <a-assets>
+  <a-assets >
     <audio id="woods" src="audio/July_Night.mp3"></audio>
     <audio id="night" src="audio/Outside_Night.mp3"></audio>
     <audio id="wind" src="audio/Wind_In_Pine_Trees.mp3"></audio>
@@ -19,7 +26,9 @@
     <a-asset-item id="grass" src="models/grass_view/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="sail" src="models/wooden_boat_with_paddles/scene.gltf" preload="auto"></a-asset-item>
     <a-asset-item id="bed" src="models/wooden_bed/scene.gltf" preload="auto"></a-asset-item>
-    <video id="video" autoplay src="videos/final_video.mp4" preload="auto"></video>
+    <a-asset-item id="monster" src="models/monster/scene.gltf" preload="auto"></a-asset-item>
+
+    <video id="video" autoplay src="videos/final_video.mp4" preload="true"></video>
     <img id="stars" src="models/stars.jpg" preload="auto">
 
   </a-assets>
@@ -48,11 +57,14 @@
 
   <a-entity gltf-model="#bed" position="0 1 13" scale=".04 .04 .04"></a-entity>
 
-
   <a-entity gltf-model="#tree2" position="6 -5.5 4" scale="1 1 1"></a-entity>
-  <a-entity gltf-model="#tree2" position="6 -5.5 -25" scale="1 1 1"></a-entity>
+  <a-entity gltf-model="#tree2" position="-6 -5.5 -1" scale="1 1 1"></a-entity>
+  <a-entity gltf-model="#monster" id="monster" position="0 -6 -33" scale=".5 .5 .5">
+    <a-animation attribute="position"
+                 easing="linear"
+                 to="0 -1 -33" dur="50000" delay="4500"></a-animation>
+  </a-entity>
 
-  <a-entity gltf-model="#grass" position="2 -1 0" scale=".6 .2 .8"></a-entity>
 
   <a-entity gltf-model="#sail" position="-4 -1 0" scale=".6 .6 .6" rotation="0 90 0">
     <a-animation attribute="position"
